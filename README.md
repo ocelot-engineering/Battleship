@@ -1,5 +1,5 @@
 # Battleship
-Java project from edX University of Pennsilvania
+Java project from edX University of Pennsylvania
 
 The design of the classes in this game is similar to an assignment used by Dr. David Matuszek at the University of Pennsylvania.
 
