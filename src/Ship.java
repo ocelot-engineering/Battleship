@@ -8,12 +8,40 @@ public abstract class Ship {
     abstract String getShipType();
 
     public boolean okToPlaceShipAt(int row, int column, boolean horizontal, Ocean ocean) {
-        // TODO write method to check if ship is ok to place
-        return false;
+
+        if (horizontal) {
+            if (column + this.length > ocean.size()) {
+                return false;
+            }
+            for (int c = column; c < c + this.length; c++) {
+                if (ocean.isOccupied(row, c)) {
+                    return false;
+                }
+            }
+        } else {
+            for (int r = row; r < r + this.length; r++) {
+                if (ocean.isOccupied(r, column)) {
+                    return false;
+                }
+            }
+        }
+        return true; // no ships found during scan, return true as ship is ok to place
     }
 
     public void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) {
-        // TODO write method for place ship at
+        setBowRow(row);
+        setBowColumn(column);
+        setHorizontal(horizontal);
+
+        if (horizontal) { // place in row
+            for (int c = column; c < column + this.length; c++) {
+                ocean.setShipArrayCell(row, c, this);
+            }
+        } else { // place in column
+            for (int r = row; r < row + this.length; r++) {
+                ocean.setShipArrayCell(r, column, this);
+            }
+        }
     }
 
     public boolean shootAt(int row, int column) {

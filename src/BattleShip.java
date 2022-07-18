@@ -1,11 +1,11 @@
 public class BattleShip extends Ship {
-    @Override
-    String getShipType() {
-        return "battleship";
+
+    public BattleShip() {
+        this.setLength(8);
     }
 
     @Override
-    public int getLength() {
-        return 8;
+    String getShipType() {
+        return "battleship";
     }
 }
