@@ -3,8 +3,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Coordinates {
     public int x;
     public int y;
-    private int xMax = 19;
-    private int yMax = 19;
+    private final int xMax = 19;
+    private final int yMax = 19;
 
     public Coordinates(int x, int y) {
         this.x = x;
@@ -28,5 +28,9 @@ public class Coordinates {
     @Override
     public String toString() {
         return "x:" + this.x + ", y:" + this.y;
+    }
+
+    public boolean equals(Coordinates coordinates) {
+        return (coordinates.x == this.x) && (coordinates.y == this.y);
     }
 }

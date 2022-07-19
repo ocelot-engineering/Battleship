@@ -20,6 +20,6 @@ public class EmptySea extends Ship {
 
     @Override
     public String toString() {
-        return ".";
+        return BattleshipGame.SHIP_MISSING;
     }
 }
